@@ -69,7 +69,19 @@ def checkWin():
 
 crossGo = False
 
+spaces = 9
+
 while True:
+
+    if spaces < 1:
+        grid = [
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace]
+        ]
+        spaces = 9
+        print("Draw! Resart!\n")
+
     crossGo = not crossGo
 
     invalidInput = True
@@ -80,16 +92,18 @@ while True:
         row = int(input("What row would you like your piece in?: "))
 
         if grid[row-1][col-1] != emptySpace:
-            print("That space is already taken!")
+            print("\nThat space is already taken!\n")
 
         else:
             invalidInput = False
     
-
+    
     if crossGo: 
         grid[row-1][col-1] = "X"
+        spaces -=1
     else:
         grid[row-1][col-1] = "O"
+        spaces -=1
 
     win = checkWin()
 
@@ -97,5 +111,10 @@ while True:
 
     if win:
         print(win, "is the winner!")
-        break
+        grid = [
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace]
+        ]
+        spaces = 9
 

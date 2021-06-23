@@ -23,11 +23,15 @@
 
 emptySpace = "-"
 
-grid = [
-    [emptySpace, emptySpace, emptySpace],
-    [emptySpace, emptySpace, emptySpace],
-    [emptySpace, emptySpace, emptySpace]
-]
+def gridReset():
+    grid = [
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace],
+        [emptySpace, emptySpace, emptySpace]
+    ]
+    return grid
+
+grid = gridReset()
 
 def printGrid():
     print()
@@ -74,11 +78,7 @@ spaces = 9
 while True:
 
     if spaces < 1:
-        grid = [
-        [emptySpace, emptySpace, emptySpace],
-        [emptySpace, emptySpace, emptySpace],
-        [emptySpace, emptySpace, emptySpace]
-        ]
+        grid = gridReset()
         spaces = 9
         print("Draw! Resart!\n")
 
@@ -111,10 +111,6 @@ while True:
 
     if win:
         print(win, "is the winner!")
-        grid = [
-        [emptySpace, emptySpace, emptySpace],
-        [emptySpace, emptySpace, emptySpace],
-        [emptySpace, emptySpace, emptySpace]
-        ]
+        grid = gridReset()
         spaces = 9
 

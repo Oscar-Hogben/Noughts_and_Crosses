@@ -58,7 +58,7 @@ while True:
     if spaces < 1:
         grid = gridReset()
         spaces = 9
-        print("Draw! Resart!\n")
+        print("\nDraw! Resart!\n")
         printGrid()
 
     crossGo = not crossGo

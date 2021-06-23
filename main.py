@@ -1,26 +1,4 @@
 
-# shoppingList = [
-#     "cheese",
-#     "bacon",
-#     "orange",
-#     "god"
-# ]
-
-# print(shoppingList[1])
-
-# shoppingList.append("chickens")
-
-# print(shoppingList)
-
-# itemRemove = input("What item would you like to remove?: ")
-
-# shoppingList.remove(itemRemove)
-
-# print(shoppingList)
-
-
-# Check for a draw,
-
 emptySpace = "-"
 
 def gridReset():

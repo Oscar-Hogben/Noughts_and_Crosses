@@ -51,7 +51,7 @@ def checkWin():
     elif grid[2][0] == grid[2][1] and grid[2][1] == grid[2][2] and grid[2][0] != emptySpace:
         return grid[2][0]
     # Diagonal left top to right bottom
-    elif grid[0][0] == grid[1][1] and grid[0][1] == grid[2][2] and grid[0][0] != emptySpace:
+    elif grid[0][0] == grid[1][1] and grid[1][1] == grid[2][2] and grid[0][0] != emptySpace:
         return grid[0][0]
     # Diagonal right top to left bottom
     elif grid[0][2] == grid[1][1] and grid[1][1] == grid[2][0] and grid[0][2] != emptySpace:
@@ -81,21 +81,24 @@ while True:
         grid = gridReset()
         spaces = 9
         print("Draw! Resart!\n")
+        printGrid()
 
     crossGo = not crossGo
 
     invalidInput = True
 
     while invalidInput:
+        try:
+            col = int(input("What column would you like your piece in?: "))
+            row = int(input("What row would you like your piece in?: "))
 
-        col = int(input("What column would you like your piece in?: "))
-        row = int(input("What row would you like your piece in?: "))
+            if grid[row-1][col-1] != emptySpace:
+                print("\nThat space is already taken!\n")
 
-        if grid[row-1][col-1] != emptySpace:
-            print("\nThat space is already taken!\n")
-
-        else:
-            invalidInput = False
+            else:
+                invalidInput = False
+        except:
+          print("\nThat is not a valid space!\n")
     
     
     if crossGo: 
@@ -113,4 +116,5 @@ while True:
         print(win, "is the winner!")
         grid = gridReset()
         spaces = 9
+        printGrid()
 
